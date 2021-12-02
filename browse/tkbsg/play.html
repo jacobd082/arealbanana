@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The keyboard smash game</title>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2131708039824494"
+     crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1 id="title">The keyboard smash game</h1>
+        <p>Points: <span id="score">-</span></p>
+        <p>Level <span id="level">0: Gotta start somewhere (0xp)</span><br><br>
+        <button onclick="clearconfig()">clear</button>
+        <input onkeyup="up()" placeholder="Click here to continue!" id="input" autofocus>
+        <Br<br>
+        <button onclick="save()">Save Score</button>
+        <button onclick="get()">Get old score</button>
+        <button onclick="window.open('https://chrome.google.com/webstore/detail/the-keyboard-smash-game/adhlioocnaghooghjgdaopkhgcmcpcpf')">Get the keyboard smash game chrome Extension</button>
+        <button onclick="setColor()">Set background color</button>
+            <script>
+            var score = Number(localStorage.getItem('score'))
+            if (score==NaN) {
+                document.getElementById('score').innerHTML=('0')
+                var score = 1
+            } else {
+                document.getElementById('score').innerHTML=(score)
+                levelUp(score)
+            }
+            
+            function get() {
+                var score = Number(localStorage.getItem('score'))
+                document.getElementById('score').innerHTML=(score)
+            }
+
+            function up() {
+                score = score += 1
+                document.getElementById('score').innerHTML=(score)
+                var colornum = Math.floor(Math.random() * 10);
+                if (colornum==1) {
+                    document.getElementById('title').style.color=('red')
+                } else if (colornum==2) {
+                    document.getElementById('title').style.color=('orange')
+                } else if (colornum==3) {
+                    document.getElementById('title').style.color=('yellow')
+                } else if (colornum==4) {
+                    document.getElementById('title').style.color=('green')
+                } else if (colornum==5) {
+                    document.getElementById('title').style.color=('blue')
+                } else if (colornum==6) {
+                    document.getElementById('title').style.color=('purple')
+                }
+                levelUp(score)
+                var text = document.getElementById('input').value
+                
+                if (text.endswith('rick')) {
+                    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+                }
+            }
+
+            function clearconfig() {
+                score = 0
+                document.getElementById('score').innerHTML=(score)
+                document.getElementById('input').value=('')
+                document.getElementById('input').style.opacity=('100')
+            }
+            
+            function save() {
+                localStorage.setItem('score', score)
+                document.getElementById('score').innerHTML=(score+ ' SAVED')
+            }
+            
+            function levelUp(_number) {
+                var lev = _number>9
+                if (lev==true) {
+                        document.getElementById('level').innerHTML=('1: The start (10xp)')
+                }
+                var lev = _number>49
+                if (lev==true) {
+                        document.getElementById('level').innerHTML=('2: Almost to 100! (50xp)')
+                    
+                }
+                var lev = _number>99
+                if (lev==true) {
+                        document.getElementById('level').innerHTML=('3: At 100! (100xp)')
+                    
+                }
+                var lev = _number>110
+                if (lev==true) {
+                        document.getElementById('level').innerHTML=('4: 111111111111 (111xp)')
+                }
+                var lev = _number>499
+                if (lev==true) {
+                        document.getElementById('level').innerHTML=('5: Half the way to 1000! (500xp)')
+                    
+                }
+                var lev = _number>665
+                if (lev==true) {
+                        document.getElementById('level').innerHTML=('6: The Devil (666xp)')
+
+                }
+                var lev = _number>999
+                
+                if (lev==true) {
+                        document.getElementById('level').innerHTML=('7: 1000! (1000xp)')
+                }
+                var lev = _number>1499
+                
+                if (lev==true) {
+                        document.getElementById('level').innerHTML=('8: Your hands are starting to hurt... arnt they? (1500xp)')
+                }
+                var lev = _number>4999
+                
+                if (lev==true) {
+                        document.getElementById('level').innerHTML=('9: Why are you still doing this? (5000xp)')
+                }
+                var lev = _number>9999
+                
+                if (lev==true) {
+                        document.getElementById('level').style.color=('blue')
+                        document.getElementById('level').innerHTML=('10: 10,000 is alot... (10000xp)')
+                }
+                var lev = _number>14999
+                
+                if (lev==true) {
+                        document.getElementById('level').innerHTML=('11: You still doing this? (15000xp)')
+                }
+                var lev = _number>19999
+                
+                if (lev==true) {
+                        document.getElementById('level').style.color=('red')
+                        document.getElementById('level').innerHTML=('12: Think of all you could have done insted of this... (20000xp)')
+                }
+                var lev = _number>20999
+                
+                if (lev==true) {
+                        document.getElementById('level').style.color=('red')
+                        document.getElementById('level').innerHTML=('13: Why do you choose to keep going? (20100xp)')
+                }
+            }
+            
+            function setColor() {
+                var setCo = prompt('Enter color:')
+                document.body.style.backgroundColor=(setCo)
+            }
+        </script>
+    </body>
+</html>
