@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Photo</title>
+</head>
+<body>
+    <input type="file" onchange="encodeImageFileAsURL(this)" />
+    <br>
+    <button onclick="localStorage.setItem('pp', prompt('ENTER URL:'))">Enter URL</button>
+    <button onclick="localStorage.setItem('pp', 'https://web.dashd.app/Dashd.png')">Reset to default</button>
+    <script>
+        function encodeImageFileAsURL(element) {
+  var file = element.files[0];
+  var reader = new FileReader();
+  reader.onloadend = function() {
+    console.log('RESULT', reader.result)
+    localStorage.setItem('pp', reader.result)
+  }
+  reader.readAsDataURL(file);
+  
+}
+
+    </script>
+</body>
+</html>

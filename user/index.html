@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+<link href="https://web.dashd.app/main.css" rel="stylesheet">
+<link rel="icon" href="https://bananagames.dashd.app/128.png">
+</head>
+<body style="font-family: 'Roboto', sans-serif;"><center>
+        <div id="imgview"></div>
+
+        <h1 id="name"><script>document.getElementById('name').innerHTML=(localStorage.getItem('Name'))</script></h1>
+        <h3 class="button" onclick="setName()">Change Name</h3>
+        <h3 class="button" onclick="window.open('profile-photo')">Change Profile Photo</h3>
+    </center>
+<style>
+    #pic:hover {
+        filter: blur(8px);
+    }
+    </style>
+
+
+    <script>
+        function setName() {
+            var newName = prompt('Enter new name')
+            localStorage.setItem('Name', newName)
+            alert('New name was set.')
+        }
+        
+        
+        var pic = localStorage.getItem('pp')
+        if (pic==null) {
+            pic = 'https://bananagames.dashd.app/128.png'
+        }
+        document.getElementById('imgview').innerHTML=('<img onclick="window.open(\'profile-photo\')" id="pic" src=\''+pic+'\' width="200" height="200" style="border-radius: 50px;">')
+    </script>
+
+<script>
+    var isuser = localStorage.getItem('user')
+    if (isuser=='true') {
+        name = localStorage.getItem('Name')
+        window.document.title=(name)
+        document.getElementById('name').innerHTML=(name)
+    } else {
+        window.open('signup', '_self')
+    }
+</script>
+
+</body>
+</html>
