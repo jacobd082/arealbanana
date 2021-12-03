@@ -4,7 +4,7 @@
     background-color: #800080;
     position: fixed;
     animation-name: load;
-    animation-delay: 2s;
+    animation-delay: 1s;
     animation-duration: 1s;
 }
 
@@ -14,7 +14,7 @@
     height: 30;
     animation: bananaspin;
     animation-iteration-count: infinite;
-    animation-duration: 3s;
+    animation-duration: 2s;
 }
 
 @keyframes bananaspin {
