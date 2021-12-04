@@ -32,6 +32,10 @@
             }
 
             function up() {
+                if (score>0==true) {
+                    ptsadd = (Number(localStorage.getItem('xp'))+1)
+                    localStorage.setItem('xp', ptsadd)
+                } 
                 score = score += 1
                 document.getElementById('score').innerHTML=(score)
                 var colornum = Math.floor(Math.random() * 10);
@@ -51,9 +55,7 @@
                 levelUp(score)
                 var text = document.getElementById('input').value
                 
-                if (text.endswith('rick')) {
-                    window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
-                }
+                
             }
 
             function clearconfig() {
@@ -66,6 +68,8 @@
             function save() {
                 localStorage.setItem('score', score)
                 document.getElementById('score').innerHTML=(score+ ' SAVED')
+                
+                
             }
             
             function levelUp(_number) {
