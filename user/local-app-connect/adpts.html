@@ -9,7 +9,7 @@
     <script>
         var a = location.href
         var b = a.substring(a.indexOf("=")+1)
-        localStorage.setItem('xp', localStorage.getItem('xp')+Number(b))
+        localStorage.setItem('xp', Number(localStorage.getItem('xp'))+Number(b))
     </script>
 </body>
 </html>
