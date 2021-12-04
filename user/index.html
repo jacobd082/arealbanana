@@ -44,6 +44,9 @@
         if (pic==null) {
             pic = 'https://bananagames.dashd.app/128.png'
         }
+        if (pic=='default') {
+            pic = 'https://bananagames.dashd.app/128.png'
+        }
         document.getElementById('imgview').innerHTML=('<img onclick="window.open(\'profile-photo\')" id="pic" src=\''+pic+'\' width="200" height="200" style="border-radius: 50px;">')
     </script>
 

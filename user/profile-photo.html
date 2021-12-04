@@ -11,7 +11,7 @@
     <input type="file" onchange="encodeImageFileAsURL(this)" />
     <br>
     <button onclick="localStorage.setItem('pp', prompt('ENTER URL:'))">Enter URL</button>
-    <button onclick="localStorage.setItem('pp', 'https://web.dashd.app/Dashd.png')">Reset to default</button>
+    <button onclick="localStorage.setItem('pp', 'default')">Reset to default</button>
     <script>
         function encodeImageFileAsURL(element) {
   var file = element.files[0];
