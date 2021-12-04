@@ -7,37 +7,37 @@
     </head>
     <body>
         <h1 id="title">The keyboard smash game</h1>
-        <p>Points: <span id="score">-</span></p>
+        <p>Points: <span id="tkbsg_score">-</span></p>
         <p>Level <span id="level">0: Gotta start somewhere (0xp)</span><br><br>
         <button onclick="clearconfig()">clear</button>
         <input onkeyup="up()" placeholder="Click here to continue!" id="input" autofocus>
         <Br<br>
-        <button onclick="save()">Save Score</button>
+        <button onclick="save()">Save score</button>
         <button onclick="get()">Get old score</button>
         <button onclick="window.open('https://chrome.google.com/webstore/detail/the-keyboard-smash-game/adhlioocnaghooghjgdaopkhgcmcpcpf')">Get the keyboard smash game chrome Extension</button>
         <button onclick="setColor()">Set background color</button>
             <script>
-            var score = Number(localStorage.getItem('score'))
-            if (score==NaN) {
-                document.getElementById('score').innerHTML=('0')
-                var score = 1
+            var tkbsg_score = Number(localStorage.getItem('tkbsg_score'))
+            if (tkbsg_score==NaN) {
+                document.getElementById('tkbsg_score').innerHTML=('0')
+                var tkbsg_score = 1
             } else {
-                document.getElementById('score').innerHTML=(score)
-                levelUp(score)
+                document.getElementById('tkbsg_score').innerHTML=(tkbsg_score)
+                levelUp(tkbsg_score)
             }
             
             function get() {
-                var score = Number(localStorage.getItem('score'))
-                document.getElementById('score').innerHTML=(score)
+                var tkbsg_score = Number(localStorage.getItem('tkbsg_score'))
+                document.getElementById('tkbsg_score').innerHTML=(tkbsg_score)
             }
 
             function up() {
-                if (score>0==true) {
+                if (tkbsg_score>0==true) {
                     ptsadd = (Number(localStorage.getItem('xp'))+1)
                     localStorage.setItem('xp', ptsadd)
                 } 
-                score = score += 1
-                document.getElementById('score').innerHTML=(score)
+                tkbsg_score = tkbsg_score += 1
+                document.getElementById('tkbsg_score').innerHTML=(tkbsg_score)
                 var colornum = Math.floor(Math.random() * 10);
                 if (colornum==1) {
                     document.getElementById('title').style.color=('red')
@@ -52,22 +52,22 @@
                 } else if (colornum==6) {
                     document.getElementById('title').style.color=('purple')
                 }
-                levelUp(score)
+                levelUp(tkbsg_score)
                 var text = document.getElementById('input').value
                 
                 
             }
 
             function clearconfig() {
-                score = 0
-                document.getElementById('score').innerHTML=(score)
+                tkbsg_score = 0
+                document.getElementById('tkbsg_score').innerHTML=(tkbsg_score)
                 document.getElementById('input').value=('')
                 document.getElementById('input').style.opacity=('100')
             }
             
             function save() {
-                localStorage.setItem('score', score)
-                document.getElementById('score').innerHTML=(score+ ' SAVED')
+                localStorage.setItem('tkbsg_score', tkbsg_score)
+                document.getElementById('tkbsg_score').innerHTML=(tkbsg_score+ ' SAVED')
                 
                 
             }
