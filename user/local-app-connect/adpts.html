@@ -10,6 +10,7 @@
         var a = location.href
         var b = a.substring(a.indexOf("=")+1)
         localStorage.setItem('xp', Number(localStorage.getItem('xp'))+Number(b))
+        window.close()
     </script>
 </body>
 </html>
