@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hue | arealbananagames</title>
+    <link rel="icon" href="https://bananagames.dashd.app/128.png">
+</head>
+<body>
+    <div id="colall">
+        <center>
+            <div id="col1" class="col" onclick="clickcol(1)"></div>
+            <div id="col2" class="col" onclick="clickcol(2)"></div>
+            <div id="col3" class="col" onclick="clickcol(3)"></div>
+        </center>
+    </div>
+</body>
+<style>
+    .col{
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        border-radius: 150%;
+        border-width: 10px;
+        border-style: solid;
+    }
+</style>
+<script>
+    sessionStorage.setItem('clicked', 'faluse')
+    color()
+    function color() {
+        var color = Math.floor(Math.random()*16777215).toString(16);
+        document.body.style.backgroundColor=('#'+color)
+
+        document.getElementById('col1').style.backgroundColor=('#'+Math.floor(Math.random()*16777215).toString(16))
+        document.getElementById('col2').style.backgroundColor=('#'+Math.floor(Math.random()*16777215).toString(16))
+        document.getElementById('col3').style.backgroundColor=('#'+Math.floor(Math.random()*16777215).toString(16))
+        cor = String((Math.floor(Math.random()*3)+1))
+        document.getElementById('col'+cor).style.backgroundColor=('#'+color)
+        sessionStorage.setItem('col', cor)
+    }
+    function clickcol(_text) {
+        if (_text==sessionStorage.getItem('col')) {
+            document.getElementById('col'+String(_text)).style.borderColor=('lightgreen')
+        } else {
+            document.getElementById('col'+String(_text)).style.borderColor=('red')
+        }
+        if (sessionStorage.getItem('clicked')=='true') {
+            window.open('play', '_self')
+        }
+        sessionStorage.setItem('clicked', 'true')
+    }
+</script>
+</html>
