@@ -43,7 +43,7 @@
     function clickcol(_text) {
         if (_text==sessionStorage.getItem('col')) {
             document.getElementById('col'+String(_text)).style.borderColor=('lightgreen')
-            if (sessionStorage.getItem('clicked')==ture) {} else {
+            if (sessionStorage.getItem('clicked')=='true') {} else {
                     ptsadd = (Number(localStorage.getItem('xp'))+1)
                     localStorage.setItem('xp', ptsadd)
                 
