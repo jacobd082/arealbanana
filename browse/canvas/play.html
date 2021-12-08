@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas | arealbananagames</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@700&display=swap" rel="stylesheet">
+</head>
+<style>
+    .con {
+        padding: 15px; border-style: solid; border-width: 2px; border-radius: 300px;
+    }
+    .con:hover {
+        background-color: rgb(170, 170, 170);
+        animation-name: hover;
+        animation-duration: 0.5s;
+    }
+    @keyframes hover {
+        0%{background-color: white;}
+        100%{background-color: rgb(170, 170, 170);}
+    }
+    canvas {
+        cursor: cell;
+    }
+</style>
+<body style="margin: 0; padding: 0;">
+    <div style="position: fixed;"><br>&nbsp;
+        <span class="con" style="font-family: 'Readex Pro', sans-serif; font-size: 16px;">Canvas</span>
+        <span class="con"> Size: <input id="width" value="10" type="range" max="100" min="1"></span>
+        <span class="con">Color : <input id="color" value="#000000" type="color" style="border-style: none; background-color: unset;"></span>
+        <span class="con" onclick="window.location.href=('play')" style="cursor: pointer;">Clear Canvas</span>
+        <span class="con" onclick="save()" style="cursor: pointer;">Save Canvas</span>
+    </div>
+    <canvas id="canvas"></canvas>
+    <script src="FileSaver.js"></script>
+    <script>
+        //Save
+        function save() {
+            canvas.toBlob(function(blob) {
+                saveAs(blob, "arealbananacanvasdrawing.png");
+            });
+        }
+        window.addEventListener('load', () =>{
+            const canvas = document.getElementById('canvas')
+            const ctx = canvas.getContext("2d")
+            //Resize Canvas
+            canvas.height = window.innerHeight
+            canvas.width = window.innerWidth
+
+            //Save
+            function save() {
+                window.open(canvas.toDataURL("image/png"))
+            }
+
+            let painting = false
+            //Lets draw
+            function startPos(e) {
+                painting = true
+                draw(e)
+            }
+            function endPos() {
+                painting = false
+                ctx.beginPath()
+            }
+            function draw(e) {
+                if (!painting) return
+                ctx.strokeStyle= document.getElementById('color').value
+                ctx.lineWidth = Number(document.getElementById('width').value)
+                ctx.lineCap = "round"
+                ctx.lineTo(e.clientX, e.clientY)
+                ctx.stroke()
+                ctx.beginPath()
+                ctx.moveTo(e.clientX, e.clientY)
+            }
+            canvas.addEventListener('mousedown', startPos)
+            canvas.addEventListener('mouseup', endPos)
+            canvas.addEventListener('mousemove', draw)
+
+        })
+    </script>
+</body>
+</html>
