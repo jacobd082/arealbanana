@@ -87,6 +87,7 @@
             function startPos(e) {
                 if (text==true) {
                     ctx.font = "50px Arial";
+                    ctx.lineWidth = 1
                     txtadd = prompt('Enter text to add:')
                     ctx.strokeText(txtadd, e.clientX, e.clientY)
                 } else {
