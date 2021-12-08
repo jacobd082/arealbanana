@@ -31,17 +31,20 @@
 <body style="margin: 0; padding: 0; font-family: sans-serif;">
     <div style="position: fixed; background-color: white;"><br>&nbsp;
         <span class="con" style="font-family: 'Readex Pro', sans-serif; font-size: 16px;">Canvas</span>
+        <span id="cntrl">
         <span class="con"> Size: <input id="width" value="10" type="range" max="100" min="1"></span>
         <span class="con"> Opacity: <input id="Opacity" value="1" type="range" max="1.00" min="0.00" step="0.01"></span>
         <span class="con">Color : <input id="color" value="#000000" type="color" style="border-style: none; background-color: unset;"></span>
         <span class="con" onclick="txt()" id="txt" style="cursor: pointer;">Text</span>
         <span class="con" onclick="window.location.href=('play')" style="cursor: pointer;">Clear Canvas</span>
         <span class="con" onclick="save()" style="cursor: pointer;">Save Canvas</span>
+        </span>
     </div>
     <canvas id="canvas"></canvas>
     <script src="FileSaver.js"></script>
     <script>
         let text = false
+        let cntrl = true
         //Save
         function save() {
             canvas.toBlob(function(blob) {
@@ -63,6 +66,30 @@
                 } else {
                     text = true
                 }
+            }
+            document.onkeyup = function(e) {
+            if (e.which == 84) {
+                txt()
+            } else if (e.which == 190) {
+                document.getElementById('width').value=(String(Number(document.getElementById('width').value)+1))
+            } else if (e.which == 188) {
+                document.getElementById('width').value=(String(Number(document.getElementById('width').value)-1))
+            } else if (e.which==67) {
+                if (cntrl==true) {
+                    document.getElementById('cntrl').style.opacity=('0%')
+                    cntrl = false
+                } else if (cntrl==false) {
+                    document.getElementById('cntrl').style.opacity=('100%')
+                    cntrl = true
+                }
+            } else if (e.which==83) {
+                asksave = confirm('Save?')
+                if (asksave==true) {
+                    save()
+                }
+            } /*else {
+                alert(e.which)
+            }*/
             }
         window.addEventListener('load', () =>{
             const canvas = document.getElementById('canvas')
