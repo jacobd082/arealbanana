@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://bananagames.dashd.app/128.png">
+
 </head>
 <style>
     .con {
@@ -42,6 +44,10 @@
             canvas.toBlob(function(blob) {
                 saveAs(blob, "arealbananacanvasdrawing.png");
             });
+        }
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            document.body.innerHTML=('<h1>This game is only supported on desktop chromium browsers.')
+            console.log("Device was verified to continue to Canvas")
         }
         window.addEventListener('load', () =>{
             const canvas = document.getElementById('canvas')
