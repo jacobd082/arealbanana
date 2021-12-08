@@ -28,10 +28,11 @@
         cursor: cell;
     }
 </style>
-<body style="margin: 0; padding: 0;">
+<body style="margin: 0; padding: 0; font-family: sans-serif;">
     <div style="position: fixed;"><br>&nbsp;
         <span class="con" style="font-family: 'Readex Pro', sans-serif; font-size: 16px;">Canvas</span>
         <span class="con"> Size: <input id="width" value="10" type="range" max="100" min="1"></span>
+        <span class="con"> Opacity: <input id="Opacity" value="1" type="range" max="1.00" min="0.00" step="0.01"></span>
         <span class="con">Color : <input id="color" value="#000000" type="color" style="border-style: none; background-color: unset;"></span>
         <span class="con" onclick="window.location.href=('play')" style="cursor: pointer;">Clear Canvas</span>
         <span class="con" onclick="save()" style="cursor: pointer;">Save Canvas</span>
@@ -52,9 +53,11 @@
         window.addEventListener('load', () =>{
             const canvas = document.getElementById('canvas')
             const ctx = canvas.getContext("2d")
+            ctx.font = "30px Arial";
             //Resize Canvas
             canvas.height = window.innerHeight
             canvas.width = window.innerWidth
+
 
             //Save
             function save() {
@@ -72,9 +75,12 @@
                 ctx.beginPath()
             }
             function draw(e) {
+                let x = e.clientX
+                let y = e.clientY
                 if (!painting) return
                 ctx.strokeStyle= document.getElementById('color').value
                 ctx.lineWidth = Number(document.getElementById('width').value)
+                ctx.globalAlpha= Number(document.getElementById('Opacity').value)
                 ctx.lineCap = "round"
                 ctx.lineTo(e.clientX, e.clientY)
                 ctx.stroke()
