@@ -29,17 +29,19 @@
     }
 </style>
 <body style="margin: 0; padding: 0; font-family: sans-serif;">
-    <div style="position: fixed;"><br>&nbsp;
+    <div style="position: fixed; background-color: white;"><br>&nbsp;
         <span class="con" style="font-family: 'Readex Pro', sans-serif; font-size: 16px;">Canvas</span>
         <span class="con"> Size: <input id="width" value="10" type="range" max="100" min="1"></span>
         <span class="con"> Opacity: <input id="Opacity" value="1" type="range" max="1.00" min="0.00" step="0.01"></span>
         <span class="con">Color : <input id="color" value="#000000" type="color" style="border-style: none; background-color: unset;"></span>
+        <span class="con" onclick="txt()" id="txt" style="cursor: pointer;">Text</span>
         <span class="con" onclick="window.location.href=('play')" style="cursor: pointer;">Clear Canvas</span>
         <span class="con" onclick="save()" style="cursor: pointer;">Save Canvas</span>
     </div>
     <canvas id="canvas"></canvas>
     <script src="FileSaver.js"></script>
     <script>
+        let text = false
         //Save
         function save() {
             canvas.toBlob(function(blob) {
@@ -50,6 +52,18 @@
             document.body.innerHTML=('<h1>This game is only supported on desktop chromium browsers.')
             console.log("Device was verified to continue to Canvas")
         }
+        function txt() {
+                var txtel = document.getElementById('txt').style
+                txtel.borderColor=('blue')
+                txtel.backgroundColor=('lightblue')
+                if (text==true) {
+                    txtel.borderColor=('black')
+                    txtel.backgroundColor=('white')
+                    text = false
+                } else {
+                    text = true
+                }
+            }
         window.addEventListener('load', () =>{
             const canvas = document.getElementById('canvas')
             const ctx = canvas.getContext("2d")
@@ -57,6 +71,7 @@
             //Resize Canvas
             canvas.height = window.innerHeight
             canvas.width = window.innerWidth
+            
 
 
             //Save
@@ -66,26 +81,36 @@
 
             let painting = false
             //Lets draw
+            ctx.font = "30px Arial"
+            ctx.strokeText("Made on Canvas: bananagames.dashd.app", 10, 30)
+            ctx.clearRect(0, 0, 10, 30)
+            
             function startPos(e) {
-                painting = true
-                draw(e)
+                if (text==true) {
+                    ctx.font = "50px Arial";
+                    txtadd = prompt('Enter text to add:')
+                    ctx.strokeText(txtadd, e.clientX, e.clientY)
+                } else {
+                    painting = true
+                    draw(e)
+                }
             }
             function endPos() {
                 painting = false
                 ctx.beginPath()
             }
             function draw(e) {
-                let x = e.clientX
-                let y = e.clientY
-                if (!painting) return
-                ctx.strokeStyle= document.getElementById('color').value
-                ctx.lineWidth = Number(document.getElementById('width').value)
-                ctx.globalAlpha= Number(document.getElementById('Opacity').value)
-                ctx.lineCap = "round"
-                ctx.lineTo(e.clientX, e.clientY)
-                ctx.stroke()
-                ctx.beginPath()
-                ctx.moveTo(e.clientX, e.clientY)
+                    let x = e.clientX
+                    let y = e.clientY
+                    if (!painting) return
+                    ctx.strokeStyle= document.getElementById('color').value
+                    ctx.lineWidth = Number(document.getElementById('width').value)
+                    ctx.globalAlpha= Number(document.getElementById('Opacity').value)
+                    ctx.lineCap = "round"
+                    ctx.lineTo(e.clientX, e.clientY)
+                    ctx.stroke()
+                    ctx.beginPath()
+                    ctx.moveTo(e.clientX, e.clientY)
             }
             canvas.addEventListener('mousedown', startPos)
             canvas.addEventListener('mouseup', endPos)
