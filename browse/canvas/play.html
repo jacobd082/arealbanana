@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://arealbanana.com/128.png">
+    <link rel="icon" href="https://www.arealbanana.com/128.png">
 
 </head>
 <style>
@@ -45,6 +45,7 @@
         <span class="con"> Opacity: <input id="Opacity" value="1" type="range" max="1.00" min="0.00" step="0.01"></span>
         <span class="con">Color : <input id="color" value="#000000" type="color" style="border-style: none; background-color: unset;"></span>
         <span class="con" onclick="txt()" id="txt" style="cursor: pointer;">Text</span>
+        <span class="con" onclick="line()" id="line" style="cursor: pointer;">Line</span>
         <span class="con" oninput="document.getElementById('canvas').style.backgroundColor=(document.getElementById('bgcol').value)">Background: <input type="color" id="bgcol" style="border-style: none; background-color: unset;"></span>
         <span class="con" onclick="window.location.href=('play')" style="cursor: pointer;">Clear Canvas</span>
         <span class="con" onclick="save()" style="cursor: pointer;">Save Canvas</span>
@@ -55,6 +56,7 @@
     <script>
         let text = false
         let cntrl = true
+        let lined = false
         //Save
         function save() {
             canvas.toBlob(function(blob) {
@@ -80,6 +82,19 @@
                     text = true
                 }
             }
+            function line() {
+                var txtel = document.getElementById('line').style
+                txtel.borderColor=('blue')
+                txtel.backgroundColor=('lightblue')
+                if (lined==true) {
+                    txtel.borderColor=('black')
+                    txtel.backgroundColor=('white')
+                    lined = false
+                } else {
+                    lined = true
+                }
+            }
+            
             document.onkeyup = function(e) {
             if (e.which == 84) {
                 txt()
@@ -143,7 +158,9 @@
             }
             function endPos() {
                 painting = false
+                if (lined==false) {
                 ctx.beginPath()
+                }
             }
             function draw(e) {
                     let x = e.clientX
