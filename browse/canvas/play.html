@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://bananagames.dashd.app/128.png">
-
+    <script src="https://web.dashd.app/log.js"></script>
 </head>
 <style>
     .con {
@@ -36,6 +36,7 @@
         <span class="con"> Opacity: <input id="Opacity" value="1" type="range" max="1.00" min="0.00" step="0.01"></span>
         <span class="con">Color : <input id="color" value="#000000" type="color" style="border-style: none; background-color: unset;"></span>
         <span class="con" onclick="txt()" id="txt" style="cursor: pointer;">Text</span>
+        <span class="con" oninput="document.getElementById('canvas').style.backgroundColor=(document.getElementById('bgcol').value)">Background: <input type="color" id="bgcol" style="border-style: none; background-color: unset;"></span>
         <span class="con" onclick="window.location.href=('play')" style="cursor: pointer;">Clear Canvas</span>
         <span class="con" onclick="save()" style="cursor: pointer;">Save Canvas</span>
         </span>
