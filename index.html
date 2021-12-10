@@ -8,6 +8,15 @@
     <link rel="icon" href="128.png">
     <link rel="stylesheet" href="load.css">
     <script src="load.js"></script>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+    <script>
+      window.OneSignal = window.OneSignal || [];
+      OneSignal.push(function() {
+        OneSignal.init({
+          appId: "2dea6894-bda7-4861-b1b2-d26fc9fa68ad",
+        });
+      });
+    </script>
 </head>
 <div id="loadscreen">
     <br><br><br>
@@ -91,8 +100,6 @@
     <a href="https://arealbananagames.blogspot.com/" style="color: gray;">Blog</a>
     <span>   </span>
     <a href="user" style="color: gray;">Your account</a>
-    <span>   </span>
-    <a href="notify" style="color: gray;">Notifications</a>
 
 </center>
 
