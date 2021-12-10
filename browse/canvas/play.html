@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@700&display=swap" rel="stylesheet">
     <link rel="icon" href="https://bananagames.dashd.app/128.png">
-    <script src="https://web.dashd.app/log.js"></script>
+
 </head>
 <style>
     .con {
@@ -27,8 +27,17 @@
     canvas {
         cursor: cell;
     }
+    dialog {
+        border-radius: 50px;
+        background: #b30000;
+        box-shadow:  20px 20px 60px #980000,
+                    -20px -20px 60px #ce0000;
+        color: white;
+    }
 </style>
 <body style="margin: 0; padding: 0; font-family: sans-serif;" onbeforeunload="return onClose()">
+    <div id="dioh"></div>
+    <script src="https://web.dashd.app/log.js"></script>
     <div style="position: fixed; background-color: white;"><br>&nbsp;
         <span class="con" style="font-family: 'Readex Pro', sans-serif; font-size: 16px;">Canvas</span>
         <span id="cntrl">
@@ -120,7 +129,13 @@
                     ctx.font = "50px Arial";
                     ctx.lineWidth = 1
                     txtadd = prompt('Enter text to add:')
-                    ctx.strokeText(txtadd, e.clientX, e.clientY)
+                    if (txtadd==null) {
+                        dio('No text to add', 'Please enter text to add.')
+                    } else if (txtadd=='') {
+                        dio('No text to add', 'Please enter text to add.')
+                    } else {
+                        ctx.strokeText(txtadd, e.clientX, e.clientY)
+                    }
                 } else {
                     painting = true
                     draw(e)
