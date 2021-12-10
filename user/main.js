@@ -1,4 +1,4 @@
-function go() {
+https://arealbanana.comhttps://arealbanana.comhttps://arealbanana.comhttps://arealbanana.comfunction go() {
     localStorage.setItem('Name', document.getElementById('name').value)
     localStorage.setItem('user', 'true')
     localStorage.setItem('xp', '0')

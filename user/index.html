@@ -8,15 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<link rel="icon" href="https://bananagames.dashd.app/128.png">
-<link rel="stylesheet" href="https://bananagames.dashd.app/load.css">
-<script src="https://bananagames.dashd.app/load.js"></script>
+<link rel="icon" href="https://arealbanana.com/128.png">
+<link rel="stylesheet" href="https://arealbanana.com/load.css">
+<script src="https://arealbanana.com/load.js"></script>
 <link rel="stylesheet" href="main.css">
 </head>
 <body style="font-family: 'Roboto', sans-serif; margin: 0;"><center>
     <div id="loadscreen">
         <br><br><br>
-        <center><img id="bananaimg" src="https://bananagames.dashd.app/128.png"></center>
+        <center><img id="bananaimg" src="https://arealbanana.com/128.png"></center>
     </div>
         <div id="imgview"></div>
 
@@ -42,10 +42,10 @@
         
         var pic = localStorage.getItem('pp')
         if (pic==null) {
-            pic = 'https://bananagames.dashd.app/128.png'
+            pic = 'https://arealbanana.com/128.png'
         }
         if (pic=='default') {
-            pic = 'https://bananagames.dashd.app/128.png'
+            pic = 'https://arealbanana.com/128.png'
         }
         document.getElementById('imgview').innerHTML=('<img onclick="window.open(\'profile-photo\')" id="pic" src=\''+pic+'\' width="200" height="200" style="border-radius: 50px;">')
     </script>
