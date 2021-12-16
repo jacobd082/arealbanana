@@ -66,10 +66,10 @@
         function onClose() {
             return "Your Canvas will not be saved unless you have already saved it."
         }
-        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        /*if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
             document.body.innerHTML=('<h1>This game is only supported on desktop chromium browsers.')
             console.log("Device was verified to continue to Canvas")
-        }
+        }*/
         function txt() {
                 var txtel = document.getElementById('txt').style
                 txtel.borderColor=('blue')
@@ -178,6 +178,9 @@
             canvas.addEventListener('mousedown', startPos)
             canvas.addEventListener('mouseup', endPos)
             canvas.addEventListener('mousemove', draw)
+            canvas.addEventListener('touchstart', startPos)
+            canvas.addEventListener('touchend', endPos)
+            canvas.addEventListener('touchmove', draw)
 
         })
     </script>
