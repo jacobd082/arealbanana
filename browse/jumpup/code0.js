@@ -90,6 +90,12 @@ gdjs.New_32sceneCode.GDNewObjectObjects3= [];
 gdjs.New_32sceneCode.GDtObjects1= [];
 gdjs.New_32sceneCode.GDtObjects2= [];
 gdjs.New_32sceneCode.GDtObjects3= [];
+gdjs.New_32sceneCode.GDWaterWarnObjects1= [];
+gdjs.New_32sceneCode.GDWaterWarnObjects2= [];
+gdjs.New_32sceneCode.GDWaterWarnObjects3= [];
+gdjs.New_32sceneCode.GDenjoyRideObjects1= [];
+gdjs.New_32sceneCode.GDenjoyRideObjects2= [];
+gdjs.New_32sceneCode.GDenjoyRideObjects3= [];
 
 gdjs.New_32sceneCode.conditionTrue_0 = {val:false};
 gdjs.New_32sceneCode.condition0IsTrue_0 = {val:false};
@@ -109,7 +115,7 @@ gdjs.New_32sceneCode.eventsList0 = function(runtimeScene) {
 gdjs.New_32sceneCode.condition0IsTrue_0.val = false;
 {
 {gdjs.New_32sceneCode.conditionTrue_1 = gdjs.New_32sceneCode.condition0IsTrue_0;
-gdjs.New_32sceneCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(8452652);
+gdjs.New_32sceneCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(8728164);
 }
 }if (gdjs.New_32sceneCode.condition0IsTrue_0.val) {
 {gdjs.evtTools.sound.playSound(runtimeScene, "jump.wav", false, 100, 1);
@@ -728,7 +734,7 @@ gdjs.New_32sceneCode.condition0IsTrue_0.val = gdjs.evtTools.object.hitBoxesColli
 }if ( gdjs.New_32sceneCode.condition0IsTrue_0.val ) {
 {
 {gdjs.New_32sceneCode.conditionTrue_1 = gdjs.New_32sceneCode.condition1IsTrue_0;
-gdjs.New_32sceneCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(8472148);
+gdjs.New_32sceneCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(8747660);
 }
 }}
 if (gdjs.New_32sceneCode.condition1IsTrue_0.val) {
@@ -1325,6 +1331,12 @@ gdjs.New_32sceneCode.GDNewObjectObjects3.length = 0;
 gdjs.New_32sceneCode.GDtObjects1.length = 0;
 gdjs.New_32sceneCode.GDtObjects2.length = 0;
 gdjs.New_32sceneCode.GDtObjects3.length = 0;
+gdjs.New_32sceneCode.GDWaterWarnObjects1.length = 0;
+gdjs.New_32sceneCode.GDWaterWarnObjects2.length = 0;
+gdjs.New_32sceneCode.GDWaterWarnObjects3.length = 0;
+gdjs.New_32sceneCode.GDenjoyRideObjects1.length = 0;
+gdjs.New_32sceneCode.GDenjoyRideObjects2.length = 0;
+gdjs.New_32sceneCode.GDenjoyRideObjects3.length = 0;
 
 gdjs.New_32sceneCode.eventsList11(runtimeScene);
 return;
