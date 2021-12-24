@@ -102,6 +102,9 @@ gdjs.New_32sceneCode.GDNewObject2Objects3= [];
 gdjs.New_32sceneCode.GDVObjects1= [];
 gdjs.New_32sceneCode.GDVObjects2= [];
 gdjs.New_32sceneCode.GDVObjects3= [];
+gdjs.New_32sceneCode.GDNewObject4Objects1= [];
+gdjs.New_32sceneCode.GDNewObject4Objects2= [];
+gdjs.New_32sceneCode.GDNewObject4Objects3= [];
 
 gdjs.New_32sceneCode.conditionTrue_0 = {val:false};
 gdjs.New_32sceneCode.condition0IsTrue_0 = {val:false};
@@ -121,7 +124,7 @@ gdjs.New_32sceneCode.eventsList0 = function(runtimeScene) {
 gdjs.New_32sceneCode.condition0IsTrue_0.val = false;
 {
 {gdjs.New_32sceneCode.conditionTrue_1 = gdjs.New_32sceneCode.condition0IsTrue_0;
-gdjs.New_32sceneCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9498460);
+gdjs.New_32sceneCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9146180);
 }
 }if (gdjs.New_32sceneCode.condition0IsTrue_0.val) {
 {gdjs.evtTools.sound.playSound(runtimeScene, "jump.wav", false, 100, 1);
@@ -740,7 +743,7 @@ gdjs.New_32sceneCode.condition0IsTrue_0.val = gdjs.evtTools.object.hitBoxesColli
 }if ( gdjs.New_32sceneCode.condition0IsTrue_0.val ) {
 {
 {gdjs.New_32sceneCode.conditionTrue_1 = gdjs.New_32sceneCode.condition1IsTrue_0;
-gdjs.New_32sceneCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9524708);
+gdjs.New_32sceneCode.conditionTrue_1.val = runtimeScene.getOnceTriggers().triggerOnce(9165676);
 }
 }}
 if (gdjs.New_32sceneCode.condition1IsTrue_0.val) {
@@ -1349,6 +1352,9 @@ gdjs.New_32sceneCode.GDNewObject2Objects3.length = 0;
 gdjs.New_32sceneCode.GDVObjects1.length = 0;
 gdjs.New_32sceneCode.GDVObjects2.length = 0;
 gdjs.New_32sceneCode.GDVObjects3.length = 0;
+gdjs.New_32sceneCode.GDNewObject4Objects1.length = 0;
+gdjs.New_32sceneCode.GDNewObject4Objects2.length = 0;
+gdjs.New_32sceneCode.GDNewObject4Objects3.length = 0;
 
 gdjs.New_32sceneCode.eventsList11(runtimeScene);
 return;
