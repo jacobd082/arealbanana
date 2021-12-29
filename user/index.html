@@ -8,23 +8,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-<link rel="icon" href="https://arealbanana.com/128.png">
-<link rel="stylesheet" href="https://arealbanana.com/load.css">
-<script src="https://arealbanana.com/load.js"></script>
+<link rel="icon" href="https://www.arealbanana.com/128.png">
+<link rel="stylesheet" href="https://www.arealbanana.com/load.css">
+<script src="https://www.arealbanana.com/load.js"></script>
 <link rel="stylesheet" href="main.css">
 </head>
-<body style="font-family: 'Roboto', sans-serif; margin: 0;"><center>
+<body style="font-family: 'Roboto', sans-serif; margin: 0;">
     <div id="loadscreen">
-        <br><br><br>
-        <center><img id="bananaimg" src="https://arealbanana.com/128.png"></center>
+        <br><br><br><center><img id="bananaimg" src="https://www.arealbanana.com/128.png"></center>
     </div>
-        <div id="imgview"></div>
+    <div style="margin: 15px; margin-top: 0;">
+        <table>
+            <tr><td><span id="imgview"></span></td><td><span style="font-size: xx-large;" id="name"><script>document.getElementById('name').innerHTML=(localStorage.getItem('Name'));</script></span><p>You have <b id="xp"><script>document.getElementById('xp').innerHTML=(localStorage.getItem('xp'));</script></b> total points.</p>
+                <p>You played <span id="total"><script>document.getElementById('total').innerHTML=(localStorage.getItem('plays'));</script></span> times</p>
+                <h3 class="button" onclick="setName()">Change Name</h3></td></tr>
+        </table>
+        <p>What is your favorite game?</p>
+        <input id="favorite" oninput="set_fav()" placeholder="Enter here">
+        <script>
+            if (localStorage.getItem('ac_fav')==null) {
+                fav = ''
+            } else {
+                fav = localStorage.getItem('ac_fav')
+            }
+            document.getElementById('favorite').value=(fav)
+            function set_fav() {
+                localStorage.setItem('ac_fav', document.getElementById('favorite').value)
+            }
+        </script>
 
-        <h1 id="name"><script>document.getElementById('name').innerHTML=(localStorage.getItem('Name'))</script></h1>
-        <p>You have <b id="xp"><script>document.getElementById('xp').innerHTML=(localStorage.getItem('xp'))</script></b> total points.</p>
-        <h3 class="button" onclick="setName()">Change Name</h3>
-        <h3 class="button" onclick="window.open('profile-photo')">Change Profile Photo</h3>
-    </center>
+
+
+        <!--<h3 class="button" onclick="window.open('profile-photo')">Change Profile Photo</h3>-->
+    </div>
 <style>
     #pic:hover {
         filter: blur(8px);
@@ -42,10 +58,10 @@
         
         var pic = localStorage.getItem('pp')
         if (pic==null) {
-            pic = 'https://arealbanana.com/128.png'
+            pic = 'https://www.arealbanana.com/128.png'
         }
         if (pic=='default') {
-            pic = 'https://arealbanana.com/128.png'
+            pic = 'https://www.arealbanana.com/128.png'
         }
         document.getElementById('imgview').innerHTML=('<img onclick="window.open(\'profile-photo\')" id="pic" src=\''+pic+'\' width="200" height="200" style="border-radius: 50px;">')
     </script>
