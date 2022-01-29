@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press the button | arealbanana games</title>
+    <link rel="icon" href="https://arealbanana.com/128.png">
+
+    <script src="https://www.arealbanana.com/review.js"></script>
+    <script>setPlay()</script>
+</head>
+<body>
+    <div style="position: relative; padding: 25px;" id="butt">
+        <button>Press Me!</button>
+    </div>
+    <script>
+        document.getElementById('butt').addEventListener("mouseover", change)
+        function change() {
+            var x = window.innerWidth - 50
+            var y = window.innerHeight - 20
+            x = Math.floor(Math.random()*x)
+            y = Math.floor(Math.random()*y)
+
+            document.getElementById('butt').style.top=(String(y)+"px")
+            document.getElementById('butt').style.left=(String(x)+"px")
+        }
+    </script>
+</body>
+<style>
+    button {
+        background-color: red;
+        border-style: none;
+        padding: 15px;
+        font-size: large;
+        border-radius: 25px;
+        cursor: none;
+    }
+</style>
+</html>
